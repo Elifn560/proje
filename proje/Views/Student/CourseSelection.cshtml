@@ -1,0 +1,88 @@
+﻿@model dynamic
+
+
+<div class="row">
+    <div class="col-6">
+        <section class="card-header">
+            <h3>Seçilecek Dersler</h3>
+            </section>
+            <div class="table-responsive table--no-card m-b-30">
+            <table class="table table-borderless table-striped table-earning">
+                <thead>
+                    <tr>
+                        <th>Öğretmen Adı</th>
+                        <th>Dersin Adı</th>
+                        <th>Ders Kredisi</th>
+                        <th>Ders Tipi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody id="unSelectedCoursesTable">
+                    @foreach (dynamic course in Model.AllCourses)
+                    {
+                        <tr class="unSelectedCourse" data-id="@course.CourseId">
+                            <td>@course.TeacherName</td>
+                            <td>@course.CourseName</td>
+                            <td>@course.CourseCredit</td>
+                            <td>@(course.CourseType == true? "Zorunlu" : "Seçmeli")</td>
+                            <td>
+                                <button type="button" class=" btn btn-success courseSelectBtn" data-id="@course.CourseId">Ekle</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <section class="card-header">
+            <h3>SEÇİLMİŞ DERSLER</h3>
+        </section>
+        <br />
+        <div class="row">
+            <div class="col-6">
+                @if(Model.StudentCourses.Count == 0)
+                {
+                    <button type="button" class=" btn btn-primary" data-url="/Student/SelectCourse" id="selectedCourseSaveBtn"> KAYDET
+                        </button>
+
+                }
+                else
+                {
+                    <button type="button" class="btn btn-primary" data-url="/Student/SelectCourse" id="selectedCourseSaveBtn" disabled>
+
+                        </button>
+        
+                }
+            </div>
+        </div>
+        <div class="table-responsive table--no-card m-b-30">
+            <table class="table table-borderless table-striped table-earning">
+                <thead>
+                    <tr>
+                        <th>Öğretmen Adı</th>
+                        <th>Dersin Adı</th>
+                        <th>Ders Kredisi</th>
+                        <th>Ders Tipi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody id="selectedCoursesTable">
+                    @foreach (var course in Model.StudentCourses)
+                    {
+                        <tr data-id="@course.CourseId">
+                            <td>@course.TeacherName</td>
+                            <td>@course.CourseName</td>
+                            <td>@course.CourseCredit</td>
+                            <td>@(course.CourseType == true ? "Zorunlu": "Seçmeli")</td>
+                            <td>
+                                <button type="button" class=" btn btn-danger courseUnSelectBtn" data-id="@course.CourseId">ÇIKART</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

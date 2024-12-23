@@ -1,0 +1,31 @@
+﻿@model List<Admin>
+<script src="~/base.js"></script>
+
+<div class="table-responsive table--no-card m-b-30">
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th>İsim</th>
+                <th>Soyisim</th>
+                <th>Email</th>
+                <th>Şifre</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Admin admin in Model)
+            {
+                <tr>
+                    <td>@admin.Name</td>
+                    <td>@admin.Surname</td>
+                    <td>@admin.Email</td>
+                    <td>@admin.Password</td>
+                    <td>
+                        <button type="button" class="btn-success">Detay</button>
+                        <button type="button" class="btn-danger">Sil</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

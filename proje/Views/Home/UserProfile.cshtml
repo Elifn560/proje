@@ -1,0 +1,44 @@
+﻿ @model dynamic
+
+    <div class="card">
+        <div class="card-header">Kullanıcı Bilgileri</div>
+        <div class="card-body card-block">
+            <form action="" method="post" class="">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <input type="text" id="name" name="name" placeholder="name" class="form-control" value="@Model.Name">
+                    </div>
+                </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <input type="surname" id="surname" name="surname" placeholder="surname" class="form-control" value="@Model.Surname">
+                </div>
+            </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <input type="email" id="email" name="email" placeholder="Email" class="form-control" value="@Model.Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-asterisk"></i>
+                        </div>
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control" value="@Model.Password">
+                    </div>
+                </div>
+                <div class="form-actions form-group">
+                    <button type="submit" class="btn btn-success btn-sm">Güncellle</button>
+                </div>
+            </form>
+        </div>
+    </div>

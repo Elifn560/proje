@@ -1,0 +1,31 @@
+﻿@model List<Course>
+<script src="~/base.js"></script>
+
+<div class="table-responsive table--no-card m-b-30">
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th>Ders Id</th>
+                <th>Ders İsmi</th>
+                <th>Ders Kredisi</th>
+                <th>Ders Tipi</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Course course in Model)
+            {
+                <tr>
+                    <td>@course.CourseId</td>
+                    <td>@course.CourseName</td>
+                    <td>@course.CourseCredit</td>
+                    <td>@(course.CourseType == true ? "Zorunlu" : "Seçmeli")</td>
+                    <td>
+                        <button type="button" class="btn-success tableDetailBtn"" data-url="/Course/CourseDetay" data-id=""@course.CourseId>Detay</button>
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
